@@ -1,0 +1,27 @@
+<div *ngIf="productos.length>0 ; else mensajeSinProductos">
+
+    <h2>Productos Registrados</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of productos">
+                <th>{{p.nombre}}</th>
+                <th>{{p.precio}}</th>
+                <th>{{p.stock}}</th>
+                <th>{{p.estado}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #mensajeSinProductos>
+    <p>No hay productos registrados</p>
+</ng-template>

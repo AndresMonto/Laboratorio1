@@ -1,0 +1,23 @@
+<h2>Registro de producto</h2>
+
+<form>
+    <div class="mb-4">
+      <label for="Nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="nombre" aria-describedby="Nombre" [(ngModel)]="producto.nombre" >
+    </div>
+    <div class="mb-4">
+      <label for="Precio" class="form-label">Precio</label>
+      <input type="number" class="form-control" name="precio" aria-describedby="Precio" [(ngModel)]="producto.precio">
+    </div>
+    <div class="mb-4">
+      <label for="Stock" class="form-label">Stock</label>
+      <input type="number" class="form-control" name="stock" aria-describedby="Stock" [(ngModel)]="producto.stock">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" name="estado" [(ngModel)]="producto.estado">
+      <label class="form-check-label" for="Estado">Estado</label>
+    </div>
+    <div class="justify-content-center">
+        <button class="btn btn-primary" (click)="Registrar()">Registrar</button>
+    </div>
+  </form>
