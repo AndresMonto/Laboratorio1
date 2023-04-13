@@ -12,4 +12,9 @@ export class ListadoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  Limpiar() {
+    ListadoComponent._productos = [];
+    this.productos = ListadoComponent._productos;
+  }
 }
