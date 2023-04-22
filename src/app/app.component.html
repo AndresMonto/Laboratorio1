@@ -298,10 +298,13 @@
   <h1 class="text-center card-header">Gestión de productos</h1>
   <div class="row justify-content-around">
     <div class="col-5">
-      <app-registro></app-registro>
+      <app-registro [listar]="listado"></app-registro>
     </div>
     <div class="col-6">
-      <app-listado></app-listado>
+      <app-listado #listado [editar]="edicion"></app-listado>
+    </div>
+    <div>
+      <app-edicion #edicion></app-edicion>
     </div>
   </div>
   <router-outlet></router-outlet>

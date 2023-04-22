@@ -22,6 +22,8 @@
             <th>{{p.precio}}</th>
             <th>{{p.stock}}</th>
             <th>{{p.estado}}</th>
+            <th><button type="button" class="btn btn-primary col"  (click)="editar?.modificarProducto(p)" data-bs-toggle="modal" data-bs-target="#modal-edicion">Editar</button></th>
+            <th><button class="btn btn-danger col">Eliminar</button></th>
           </tr>
         </tbody>
       </table>

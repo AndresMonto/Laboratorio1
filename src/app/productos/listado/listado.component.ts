@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Producto } from 'src/app/modelo/producto';
+import { ProductoService } from 'src/app/servicios/producto.service';
+import { EdicionComponent } from '../edicion/edicion.component';
 
 @Component({
   selector: 'app-listado',
@@ -7,14 +10,20 @@ import { Producto } from 'src/app/modelo/producto';
   styleUrls: ['./listado.component.css']
 })
 export class ListadoComponent implements OnInit {
-  public static _productos: Producto[] = [];
-  public productos: Producto[] = ListadoComponent._productos;
+  public productos: Producto[] = [];
+
+  @Input() editar: EdicionComponent | undefined;
+
+  constructor(private servicioProducto:ProductoService, private router: Router){}
 
   ngOnInit(): void {
+    this.servicioProducto.getProductos().subscribe(result =>{
+      console.log(result);
+      this.productos = result;
+    });
   }
 
   Limpiar() {
-    ListadoComponent._productos = [];
-    this.productos = ListadoComponent._productos;
+    this.productos = [];
   }
 }

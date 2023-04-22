@@ -1,0 +1,39 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-edicion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+  role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Edición de producto</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-4">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" aria-describedby="Nombre"
+              [(ngModel)]="producto.nombre">
+          </div>
+          <div class="mb-4">
+            <label for="Precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" name="precio" aria-describedby="Precio"
+              [(ngModel)]="producto.precio">
+          </div>
+          <div class="mb-4">
+            <label for="Stock" class="form-label">Stock</label>
+            <input type="number" class="form-control" name="stock" aria-describedby="Stock"
+              [(ngModel)]="producto.stock">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" name="estado" [(ngModel)]="producto.estado">
+            <label class="form-check-label" for="Estado">Estado</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="Editar()">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
