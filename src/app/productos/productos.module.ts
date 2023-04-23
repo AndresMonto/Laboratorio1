@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EdicionComponent } from './edicion/edicion.component';
 import { RouterModule, Routes } from '@angular/router';
+import { EliminacionComponent } from './eliminacion/eliminacion.component';
 
 const routes: Routes = [
   { path: 'edicion-producto/:id', component: EdicionComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   declarations: [
     RegistroComponent,
     ListadoComponent,
-    EdicionComponent
+    EdicionComponent,
+    EliminacionComponent
   ],
   imports: [
     CommonModule,

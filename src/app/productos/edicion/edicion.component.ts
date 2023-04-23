@@ -19,7 +19,10 @@ export class EdicionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Editar() {
+  Editar(producto: Producto) {
+    this.servicioProducto.actualizarProducto(producto).subscribe(result =>{
+      console.log(result);
+    });
   }
 
   modificarProducto(producto: Producto){

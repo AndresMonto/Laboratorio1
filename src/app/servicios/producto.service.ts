@@ -38,4 +38,13 @@ export class ProductoService {
     return this.http.post(this.url, JSON.stringify(producto), { headers: header });
   }
 
+  public actualizarProducto(producto: Producto) {
+
+    let header = new HttpHeaders();
+    header.append('Content-Type', 'aplication/json')
+    header.append('Access-Control-Allow-Methods', '"POST, GET,DELETE,PUT"')
+    header.append('Access-Control-Allow-Origin', 'http://localhost');
+    return this.http.put(this.url, JSON.stringify(producto), { headers: header });
+  }
+
 }
