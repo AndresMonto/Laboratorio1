@@ -47,4 +47,17 @@ export class ProductoService {
     return this.http.put(this.url, JSON.stringify(producto), { headers: header });
   }
 
+  public eliminarProducto(producto: Producto) {
+
+    let header = new HttpHeaders();
+    header.append('Content-Type', 'aplication/json')
+    header.append('Access-Control-Allow-Methods', '"POST, GET,DELETE,PUT"')
+    header.append('Access-Control-Allow-Origin', 'http://localhost');
+
+    var params = new HttpParams();
+    params = params.append('id', producto.id.toString());
+
+    return this.http.delete(this.url, { headers: header, params: params});
+  }
+
 }

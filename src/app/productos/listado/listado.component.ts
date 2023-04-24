@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Producto } from 'src/app/modelo/producto';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { EdicionComponent } from '../edicion/edicion.component';
+import { EliminacionComponent } from '../eliminacion/eliminacion.component';
 
 @Component({
   selector: 'app-listado',
@@ -13,6 +14,8 @@ export class ListadoComponent implements OnInit {
   public productos: Producto[] = [];
 
   @Input() editar: EdicionComponent | undefined;
+
+  @Input() eliminar: EliminacionComponent | undefined;
 
   constructor(private servicioProducto:ProductoService, private router: Router){}
 

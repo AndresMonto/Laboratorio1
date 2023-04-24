@@ -301,10 +301,13 @@
       <app-registro [listar]="listado"></app-registro>
     </div>
     <div class="col-6">
-      <app-listado #listado [editar]="edicion"></app-listado>
+      <app-listado #listado [editar]="edicion" [eliminar]="eliminacion"></app-listado>
     </div>
     <div>
       <app-edicion #edicion></app-edicion>
+    </div>
+    <div>
+      <app-eliminacion #eliminacion></app-eliminacion>
     </div>
   </div>
   <router-outlet></router-outlet>

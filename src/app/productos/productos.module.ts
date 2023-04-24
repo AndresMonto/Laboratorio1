@@ -29,6 +29,7 @@ const routes: Routes = [
     RegistroComponent,
     ListadoComponent,
     EdicionComponent,
+    EliminacionComponent,
     RouterModule
   ]
 })
