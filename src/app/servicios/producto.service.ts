@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Producto } from '../modelo/producto';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ProductoService {
     this.productos.push(p);
   }
 
-  public getProductos(p: Producto | null = null) {
+  public getProductos(p: Producto | null = null) : Observable<Producto[]> {
     var header = new HttpHeaders();
     header.append('Content-Type', 'aplication/json');
     header.append('Access-Control-Allow-Origin', 'http://localhost');
@@ -29,25 +30,25 @@ export class ProductoService {
     return this.http.get<Producto[]>(this.url, { headers: header, params: params });
   }
 
-  public crearProducto(producto: Producto) {
+  public crearProducto(producto: Producto) : Observable<Producto> {
 
     let header = new HttpHeaders();
     header.append('Content-Type', 'aplication/json')
     header.append('Access-Control-Allow-Methods', '"POST, GET,DELETE,PUT"')
     header.append('Access-Control-Allow-Origin', 'http://localhost');
-    return this.http.post(this.url, JSON.stringify(producto), { headers: header });
+    return this.http.post<Producto>(this.url, JSON.stringify(producto), { headers: header });
   }
 
-  public actualizarProducto(producto: Producto) {
+  public actualizarProducto(producto: Producto) : Observable<Producto> {
 
     let header = new HttpHeaders();
     header.append('Content-Type', 'aplication/json')
     header.append('Access-Control-Allow-Methods', '"POST, GET,DELETE,PUT"')
     header.append('Access-Control-Allow-Origin', 'http://localhost');
-    return this.http.put(this.url, JSON.stringify(producto), { headers: header });
+    return this.http.put<Producto>(this.url, JSON.stringify(producto), { headers: header });
   }
 
-  public eliminarProducto(producto: Producto) {
+  public eliminarProducto(producto: Producto) : Observable<boolean> {
 
     let header = new HttpHeaders();
     header.append('Content-Type', 'aplication/json')
@@ -57,7 +58,7 @@ export class ProductoService {
     var params = new HttpParams();
     params = params.append('id', producto.id.toString());
 
-    return this.http.delete(this.url, { headers: header, params: params});
+    return this.http.delete<boolean>(this.url, { headers: header, params: params});
   }
 
 }

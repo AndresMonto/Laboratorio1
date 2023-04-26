@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { count, isEmpty, Observable } from 'rxjs';
 import { Producto } from 'src/app/modelo/producto';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { EdicionComponent } from '../edicion/edicion.component';
@@ -11,7 +12,8 @@ import { EliminacionComponent } from '../eliminacion/eliminacion.component';
   styleUrls: ['./listado.component.css']
 })
 export class ListadoComponent implements OnInit {
-  public productos: Producto[] = [];
+  public productos: Observable<Producto[]> | undefined;
+  public any: boolean = true;
 
   @Input() eliminar: EliminacionComponent | undefined;
 
@@ -19,14 +21,12 @@ export class ListadoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.servicioProducto.getProductos().subscribe(result =>{
-      this.productos = result;
-      console.log(result);
-    });
+    this.productos = this.servicioProducto.getProductos();
+    this.productos.subscribe(result => this.any = result.length > 0);
   }
 
   Limpiar() {
-    this.productos = [];
+    this.productos = new Observable();
   }
 
   ModificarProducto(producto: Producto){
