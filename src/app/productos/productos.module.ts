@@ -5,32 +5,28 @@ import { ListadoComponent } from './listado/listado.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EdicionComponent } from './edicion/edicion.component';
-import { RouterModule, Routes } from '@angular/router';
 import { EliminacionComponent } from './eliminacion/eliminacion.component';
-
-const routes: Routes = [
-  { path: 'edicion-producto/:id', component: EdicionComponent },
-];
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
   declarations: [
     RegistroComponent,
     ListadoComponent,
     EdicionComponent,
-    EliminacionComponent
+    EliminacionComponent,
+    ContainerComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
   ],
   exports:[
     RegistroComponent,
     ListadoComponent,
     EdicionComponent,
     EliminacionComponent,
-    RouterModule
+    ContainerComponent,
   ]
 })
 export class ProductosModule { }

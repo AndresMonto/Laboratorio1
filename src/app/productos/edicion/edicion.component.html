@@ -1,39 +1,38 @@
-<!-- Modal -->
-<div class="modal fade" id="modal-edicion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
-  role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Edición de producto</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="row justify-content-center mt-5">
+  <div class="col-6">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title text-center">Edición de producto</h2>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="mb-4">
+              <label for="Nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" name="nombre" aria-describedby="Nombre"
+                [(ngModel)]="producto.nombre">
+            </div>
+            <div class="mb-4">
+              <label for="Precio" class="form-label">Precio</label>
+              <input type="number" class="form-control" name="precio" aria-describedby="Precio"
+                [(ngModel)]="producto.precio">
+            </div>
+            <div class="mb-4">
+              <label for="Stock" class="form-label">Stock</label>
+              <input type="number" class="form-control" name="stock" aria-describedby="Stock"
+                [(ngModel)]="producto.stock">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" name="estado" [(ngModel)]="producto.estado">
+              <label class="form-check-label" for="Estado">Estado</label>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="row justify-content-center">
+            <button type="button" class="btn btn-secondary col-2" (click)="Cancelar()">Cancelar</button>
+            <button type="button" class="btn btn-primary col-2" (click)="Editar(producto)">Editar</button>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-4">
-            <label for="Nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="nombre" aria-describedby="Nombre"
-              [(ngModel)]="producto.nombre">
-          </div>
-          <div class="mb-4">
-            <label for="Precio" class="form-label">Precio</label>
-            <input type="number" class="form-control" name="precio" aria-describedby="Precio"
-              [(ngModel)]="producto.precio">
-          </div>
-          <div class="mb-4">
-            <label for="Stock" class="form-label">Stock</label>
-            <input type="number" class="form-control" name="stock" aria-describedby="Stock"
-              [(ngModel)]="producto.stock">
-          </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" name="estado" [(ngModel)]="producto.estado">
-            <label class="form-check-label" for="Estado">Estado</label>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" (click)="Editar(producto)">Editar</button>
-      </div>
-    </div>
   </div>
 </div>

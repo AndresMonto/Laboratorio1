@@ -16,14 +16,13 @@ export class RegistroComponent implements OnInit {
 
   constructor(private servicioProducto:ProductoService){}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   Registrar() {
     this.servicioProducto.crearProducto(this.producto).subscribe(restult => {
       this.producto = new Producto();
-      console.log(restult);
       this.listar?.ngOnInit();
+      console.log(restult);
     });
   }
 }
